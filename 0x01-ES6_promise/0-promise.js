@@ -1,4 +1,5 @@
 export function getResponseFromAPI() {
-    var promise = new Promise((resolve, reject))
+    var promise = new Promise()
+
     return (promise)
 }
