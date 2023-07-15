@@ -5,13 +5,13 @@ export default class Pricing {
     if (typeof amount === 'number') {
       this._amount = amount;
     } else {
-      throw new Error('Invalid Type. Expected Number');
+      throw new Error('Invalid Type. (Amount) Expected Number');
     }
 
-    if (typeof currency === typeof Currency) {
+    if (currency instanceof Currency) {
       this._currency = currency;
     } else {
-      throw new Error('Invalid Type. Expected Number');
+      throw new Error('Invalid Type. (currency) Expected Currency');
     }
   }
 
@@ -30,16 +30,13 @@ export default class Pricing {
   }
 
   set currency(newCurrency) {
-    if (typeof newCurrency === typeof Currency) {
+    if (newCurrency instanceof Currency) {
       this._currency = newCurrency;
     }
   }
 
   displayFullPrice() {
-    return {
-      _amount: this._amount,
-      _currency: this._currency,
-    };
+    return `${this._amount} ${this._currency._name} (${this._currency._code})`;
   }
 
   static convertPrice(amount, conversionRate) {
@@ -47,6 +44,6 @@ export default class Pricing {
       const convertedPrice = amount * conversionRate;
       return convertedPrice;
     }
-    return new Error('Invalid Type. Both Amount and conversionRate must be number');
+    return null;
   }
 }
