@@ -11,9 +11,9 @@ export default class Airport {
     } else {
       throw new Error('(code) Invalid Type. Expected String');
     }
+  }
 
-    toString() {
-      return this._code;
-    }
+  toString() {
+    return this._code;
   }
 }
