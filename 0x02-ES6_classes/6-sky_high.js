@@ -21,7 +21,6 @@ export default class SkyHighBuilding extends Building {
       throw new Error('(floors) Invalid Type. Expected Number');
     }
   }
-  }
 
   evacuationWarningMessage() {
     return `Evacuate slowly the ${this._floors} floors`;
