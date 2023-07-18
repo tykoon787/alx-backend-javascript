@@ -1,8 +1,10 @@
 export default class Building {
   constructor(sqft) {
-    // Check if method has been overidden
-    if (this.evacuationWarningMessage !== 'function') {
-      throw new Error('Class extending Building must override evacuationWarningMessage');
+    if (this.constructor !== Building) {
+      // Check if method has been overidden
+      if (this.evacuationWarningMessage !== 'function') {
+        throw new Error('Class extending Building must override evacuationWarningMessage');
+      }
     }
 
     if (typeof sqft === 'number') {
