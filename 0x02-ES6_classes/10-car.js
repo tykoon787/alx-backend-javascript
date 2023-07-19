@@ -13,7 +13,6 @@ export default class Car {
     }
   }
 
-
   get brand() {
     return this._brand;
   }
