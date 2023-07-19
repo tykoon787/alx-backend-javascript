@@ -1,32 +1,47 @@
 export default class Car {
   constructor(brand, motor, color) {
-    this.brand = brand;
-    this.motor = motor;
-    this.color = color;
+    if (typeof brand === 'string') {
+      this._brand = brand;
+    }
+
+    if (typeof motor === 'string') {
+      this._motor = motor;
+    }
+
+    if (typeof color === 'string') {
+      this._color = color;
+    }
   }
+
 
   get brand() {
     return this._brand;
   }
 
-  set brand(value) {
-    this._brand = value;
+  set brand(newBrand) {
+    if (typeof newBrand === 'string') {
+      this._brand = newBrand;
+    }
   }
 
   get motor() {
     return this._motor;
   }
 
-  set motor(value) {
-    this._motor = value;
+  set motor(newMotor) {
+    if (typeof newMotor === 'string') {
+      this._motor = newMotor;
+    }
   }
 
   get color() {
     return this._color;
   }
 
-  set color(value) {
-    this._color = value;
+  set color(newColor) {
+    if (typeof newColor === 'string') {
+      this._color = newColor;
+    }
   }
 
   static get [Symbol.species]() {
@@ -35,7 +50,6 @@ export default class Car {
 
   cloneCar() {
     const Species = this.constructor[Symbol.species];
-
     return new Species();
   }
 }
